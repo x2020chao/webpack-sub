@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHashHistory(window.__POWERED_BY_QIANKUN__ ? '/mana' : '/'),
   routes: [
     {
       path: "/",

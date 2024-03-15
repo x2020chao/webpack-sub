@@ -9,6 +9,9 @@ module.exports = (env) => ({
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -30,6 +33,9 @@ module.exports = (env) => ({
     filename: "assets/js/[name].[contenthash:6].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    library: "webpack-pub",
+    libraryTarget: "umd",
+    chunkLoadingGlobal: "webpackJsonp_webpack-pub",
   },
   module: {
     rules: [
